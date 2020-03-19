@@ -1,6 +1,6 @@
 # Spammer
 
-## [Send to your friends](https://github.com/kenmueller/spammerbot#readme)
+#### [Send to your friends](https://github.com/kenmueller/spammerbot#readme)
 
 ## Install
 
@@ -12,7 +12,7 @@
 
 ## System Preferences
 
-### In `System Preferences -> Security & Privacy -> Accessibility`, select `Terminal`.
+#### In `System Preferences -> Security & Privacy -> Accessibility`, select `Terminal`.
 
 ## Run
 

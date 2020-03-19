@@ -1,6 +1,6 @@
 {
 	"name": "spammerbot",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Spam messages",
 	"bin": {
 		"spam": "bin/spam"
