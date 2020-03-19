@@ -1,0 +1,49 @@
+#!/usr/bin/env node
+
+const robot = require('robotjs')
+const chalk = require('chalk')
+
+const rl = require('readline').createInterface({
+	input: process.stdin,
+	output: process.stdout
+})
+
+const sleep = duration =>
+	new Promise(resolve => setTimeout(resolve, duration))
+
+const getReady = async count => {
+	for (let i = 0; i < count; i++) {
+		console.log(chalk.cyan.bold(`${count - i}...`))
+		await sleep(1000)
+	}
+}
+
+rl.question(
+	chalk.white.bold('Enter your message: '),
+	message => {
+		rl.question(
+			chalk.white.bold('How many times do you want to spam? '),
+			async countString => {
+				const count = parseInt(countString)
+				
+				if (isNaN(count)) {
+					console.log(chalk.red.bold('You must enter a number'))
+					return rl.close()
+				}
+				
+				await getReady(5)
+				
+				for (let i = 0; i < count; i++) {
+					process.stdout.write(chalk.green.bold(`Sent ${i}/${count}\r`))
+					
+					robot.typeString(message)
+					robot.keyTap('enter')
+				}
+				
+				console.log(chalk.green.bold(`Sent ${count}/${count}\nDone!`))
+				
+				rl.close()
+			}
+		)
+	}
+)
